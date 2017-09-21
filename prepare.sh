@@ -14,6 +14,7 @@ LIBNETWORK_PLUGIN_VERSION="v1.1.0"
 BIRD_VERSION="v0.3.1"
 BIRD6_VERSION="v0.3.1"
 CONSUL_VERSION="0.8.5"
+ETCD_VERSION="2.3.7"
 BINARY_URL_PREFIX="https://lain.oss-cn-beijing.aliyuncs.com/binary"
 
 filename="lain-pre-1476939656.tar.gz"
@@ -42,6 +43,8 @@ wget -c ${BINARY_URL_PREFIX}/libnetwork-plugin/releases/download/${LIBNETWORK_PL
 wget -c ${BINARY_URL_PREFIX}/bird/releases/download/${BIRD_VERSION}/bird.xz -O playbooks/roles/calico/files/bin/bird.xz
 wget -c ${BINARY_URL_PREFIX}/bird/releases/download/${BIRD6_VERSION}/bird6.xz -O playbooks/roles/calico/files/bin/bird6.xz
 wget -c ${BINARY_URL_PREFIX}/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip -O playbooks/roles/consul/files/bin/consul_${CONSUL_VERSION}_linux_amd64.zip
+wget -c http://lain.oss-cn-beijing.aliyuncs.com/etcd-${ETCD_VERSION}-4.el7.x86_64.rpm
+rpm -i  --nodeps etcd-${ETCD_VERSION}-4.el7.x86_64.rpm
 
 unxz -kf playbooks/roles/networkd/files/networkd.xz
 unxz -kf playbooks/roles/deployd/files/deployd.xz

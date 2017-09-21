@@ -153,6 +153,9 @@ def install_ansible(options):
                    shell=True)
         # NOTE: This will install python-crypto.
         check_call('yum install -y python2-pip', shell=True)
+        check_call('mkdir -p /.pip' , shell=True)
+        check_call('echo "[global]" >> /.pip/pip.conf', shell=True)
+        check_call('echo "https://pypi.mirrors.ustc.edu.cn/simple/" >> /.pip/pip.conf', shell=True)
         check_call('pip install ansible==1.9.6', shell=True)
 
     # Install customized plugins, eg. show timestamp for tasks
