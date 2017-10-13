@@ -43,8 +43,8 @@ wget  ${BINARY_URL_PREFIX}/libnetwork-plugin/releases/download/${LIBNETWORK_PLUG
 wget  ${BINARY_URL_PREFIX}/bird/releases/download/${BIRD_VERSION}/bird.xz -O playbooks/roles/calico/files/bin/bird.xz
 wget  ${BINARY_URL_PREFIX}/bird/releases/download/${BIRD6_VERSION}/bird6.xz -O playbooks/roles/calico/files/bin/bird6.xz
 wget  ${BINARY_URL_PREFIX}/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip -O playbooks/roles/consul/files/bin/consul_${CONSUL_VERSION}_linux_amd64.zip
-wget  http://lain.oss-cn-beijing.aliyuncs.com/etcd-${ETCD_VERSION}-4.el7.x86_64.rpm
-rpm -i  --nodeps etcd-${ETCD_VERSION}-4.el7.x86_64.rpm
+wget  http://lain.oss-cn-beijing.aliyuncs.com/etcd-${ETCD_VERSION}-4.el7.x86_64.rpm -O playbooks/roles/etcd/files/etcd-${ETCD_VERSION}-4.el7.x86_64.rpm
+
 
 unxz -kf playbooks/roles/networkd/files/networkd.xz
 unxz -kf playbooks/roles/deployd/files/deployd.xz
