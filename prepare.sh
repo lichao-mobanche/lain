@@ -45,7 +45,6 @@ wget  ${BINARY_URL_PREFIX}/bird/releases/download/${BIRD6_VERSION}/bird6.xz -O p
 wget  ${BINARY_URL_PREFIX}/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip -O playbooks/roles/consul/files/bin/consul_${CONSUL_VERSION}_linux_amd64.zip
 wget  http://lain.oss-cn-beijing.aliyuncs.com/etcd-${ETCD_VERSION}-4.el7.x86_64.rpm -O playbooks/roles/etcd/files/etcd-${ETCD_VERSION}-4.el7.x86_64.rpm
 
-
 unxz -kf playbooks/roles/networkd/files/networkd.xz
 unxz -kf playbooks/roles/deployd/files/deployd.xz
 unxz -kf playbooks/roles/lainlet/files/lainlet.xz
