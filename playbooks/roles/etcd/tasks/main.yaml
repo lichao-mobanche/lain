@@ -2,7 +2,8 @@
   user: name=etcd createhome=no
 
 - name: install etcd
-  yum: pkg=etcd-{{ etcd_ver }}
+  command: rpm -i /vagrant/playbooks/roles/etcd/files/etcd-{{ etcd_ver }}-4.el7.x86_64.rpm
+  ignore_errors: True
 
 - name: get etcd member list
   local_action: shell etcdctl member list  | awk '{print $2}' | awk '{print substr($1, 6)}'

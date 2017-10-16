@@ -5,17 +5,24 @@ import requests
 
 import app_ctl
 from config import CONFIG
+from retrying import retry
 
-
+@retry(stop_max_attempt_number=20, wait_fixed=10000)
 def test_client_is_working(deploy_ipaddr):
     url = "http://" + CONFIG.vip
     headers = {"Host": CONFIG.ipaddr_client_hostname}
     req = requests.get(url, headers=headers)
-    assert req.status_code == 200
-
-
+    if(req.status_code != 200):
+    	print "req.status_code != 200"
+    	raise IOError("req.status_code != 200")
+    else:
+    	assert req.status_code == 200
+@retry(stop_max_attempt_number=20, wait_fixed=10000)
 def test_client_is_scaled(scale_ipaddr_client):
     req = app_ctl.get_proc_info(CONFIG.ipaddr_client_appname,
-                                CONFIG.ipaddr_client_procname)
-    assert len(req.json()['proc'][
-        'pods']) == CONFIG.ipaddr_client_num_instances
+                               CONFIG.ipaddr_client_procname)
+    if(len(req.json()['proc']['pods']) != CONFIG.ipaddr_client_num_instances):
+    	print "the number of pods is error"
+    	raise IOError("the number of pods is error")
+    else:
+    	assert len(req.json()['proc']['pods']) == CONFIG.ipaddr_client_num_instances
