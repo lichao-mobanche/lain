@@ -72,7 +72,9 @@ def main():
                            "docker will run on loop-lvm if this is not given, but loop-lvm is not proposed")
     parser.add_option('--ipip', action='store_true',
                       help="calico using ip tunnel")
-    parser.add_option('--mirror',action='store_true',help='use mirror instead of official')
+
+    parser.add_option('--pypi-mirror',action='store_true',help='use the third party python mirror')
+
     options, args = parser.parse_args()
 
     if options.download_only:
@@ -153,7 +155,8 @@ def install_ansible(options):
         # NOTE: This will install python-crypto.
         check_call('yum install -y python2-pip', shell=True)
         check_call('pip install --upgrade pip', shell=True)
-        if options.mirror:
+
+        if options.pypi_mirror:
             check_call('pip install -i https://pypi.mirrors.ustc.edu.cn/simple/ ansible==1.9.6', shell=True)
         else:
             check_call('pip install ansible==1.9.6', shell=True)
