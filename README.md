@@ -1,5 +1,5 @@
 # LAIN
-
+[![Build Status](http://ci.laincloud.com:8080/buildStatus/icon?job=lain-bootstrap)](http://10.143.248.15:8080/job/lain-bootstrap/)
 [![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/laincloud/opensource)
 [![Throughput Graph](https://graphs.waffle.io/laincloud/lain/throughput.svg)](https://waffle.io/laincloud/lain/metrics/throughput)
